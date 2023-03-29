@@ -16,12 +16,14 @@ public class FoodTruck {
 	private int truckId;
 	private String foodType;
 	private int rating;
+	private static int truckCounter;
 	
-	public FoodTruck(String nm, String type, int rtg, int id) {
+	public FoodTruck(String nm, String type, int rtg) {
 		name = nm;
 		foodType = type;
 		rating = rtg;
-		truckId = id;	// this is not user input but should be automatically assigned 0,1,2,3,4
+		truckCounter++;
+		truckId = truckCounter;
 	}
 
 	public String toString() {

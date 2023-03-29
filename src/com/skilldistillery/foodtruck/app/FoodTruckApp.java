@@ -5,15 +5,15 @@ import java.util.Scanner;
 import com.skilldistillery.foodtruck.entities.FoodTruck;
 
 public class FoodTruckApp {       //only class with scanner. none in FoodTruck.
+	private static final int MAX_TRUCKS = 5;
 	private FoodTruck[] fleet = new FoodTruck[5];
 	private int numTrucks = 0;
-	private int setTruckId = 1;
 	
 	public static void main(String[] args) {
 		FoodTruckApp fta = new FoodTruckApp();
 		Scanner sc = new Scanner(System.in);
 		
-		for(int i = 0; i < fta.fleet.length; i++) {
+		for(int i = 0; i < MAX_TRUCKS; i++) {
 			System.out.println("Please enter name of food truck. (Enter quit to move on) ");
 			String nameInput = sc.nextLine();
 			
@@ -27,8 +27,7 @@ public class FoodTruckApp {       //only class with scanner. none in FoodTruck.
 					int ratingInput = sc.nextInt();
 					sc.nextLine();				// this line ensures there is a break between end and beginning questions.
 					
-					FoodTruck createTruck = new FoodTruck(nameInput, foodInput, ratingInput, fta.setTruckId);
-					fta.setTruckId++;
+					FoodTruck createTruck = new FoodTruck(nameInput, foodInput, ratingInput);
 					fta.fleet[fta.numTrucks] = createTruck;
 					fta.numTrucks++;
 					
